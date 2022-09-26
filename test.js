@@ -1,5 +1,5 @@
 // import the function sum from the app.js file
-const { sum, fromEuroToDollar} = require('./app.js');
+const { sum } = require('./app.js');
 
 // start your first test
 test('adds 14 + 9 to equal 23', () => {
@@ -27,23 +27,29 @@ test("One euro should be 1.206 dollars", function(){
 })
 
 
-test ("One euro should be 127.9 japan yen", function () {
-    // import the function from app.js 
-    const {fromDollarToYen = require ('app.js') 
+test("One euro should be 127.9 yen", function(){
+    //import the function from app.js
+    const { fromDollartoYen } = require('./app.js')
 
-    // use the function like its supposed to be used 
-    const dollars= "dollars";
+    // use the function like its suppoed to be used
+    const yen = fromDollartoYen(1.2)
 
-    //this is the comparison for the unit test
-    expect (fromDollarToYen )
+    // if 1 euro is 1.2 dollar, and 1 euro is also 127.9 yen, 1.2 dollars should be 1 euro which should be 127.9 yen 
+    const expected = 1.2 / 1.2 * 127.9; 
+    
+    // this is the comparison for the unit test
+     expect(fromDollartoYen(1.2)).toBe(127.9); //1 euro is 1.2 dollar, and 1 euro is also 127.9 yen, 1.2 /1.2 * 127.9
 })
+test("One euro should be .8 british pounds", function(){
+    //import the function from app.js
+    const { fromYentoPound } = require('./app.js')
 
+    // use the function like its suppoed to be used
+    const yen = fromYentoPound(127.9)
 
-test ("One euro should be 0,8 british pound"), function () {
-    // import the function fromm app.js
-    const {fromYenToPound} = require ("app.js") 
-
-    // use the function like its supposed to be used 
-
-    expect (fromYentoPound)
-}
+    // if 1 euro is 1.2 dollar, and 1 euro is also 127.9 yen, 1.2 dollars should be 1 euro which should be 127.9 yen 
+    const expected = 127.9 / 127.9 *.8; 
+    
+    // this is the comparison for the unit test
+     expect(fromYentoPound(127.9)).toBe(0.8); //1 euro is also 127.9 yen and 1 euro is 0.8 british pounds,  127.9/127.9*0.8
+})
